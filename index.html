@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Elite Techs</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --main-color: #1e3a8a;
+      --light-blue: #3b82f6;
+      --white: #ffffff;
+      --text-dark: #1e293b;
+      --gray-bg: #f1f5f9;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--gray-bg);
+      color: var(--text-dark);
+    }
+
+    .navbar, footer {
+      background-color: var(--main-color);
+    }
+
+    .navbar .nav-link,
+    .navbar .navbar-brand,
+    footer a {
+      color: var(--white) !important;
+    }
+
+    .navbar .nav-link:hover,
+    footer a:hover {
+      color: var(--light-blue) !important;
+    }
+
+    .hero {
+      background-color: var(--main-color);
+      color: var(--white);
+      padding: 4rem 2rem;
+      border-radius: 12px;
+      margin: 2rem auto;
+      max-width: 1100px;
+      text-align: center;
+    }
+
+    .hero img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--light-blue);
+      margin-bottom: 1rem;
+    }
+
+    .features {
+      padding: 3rem 1rem;
+    }
+
+    .feature-card {
+      background-color: var(--white);
+      border-radius: 12px;
+      padding: 2rem 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: all 0.2s ease-in-out;
+      text-align: center;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      color: var(--main-color);
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      border-radius: 12px 12px 0 0;
+      margin-top: 3rem;
+    }
+
+    footer p {
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg shadow-sm px-3">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><i class="fas fa-laptop-code"></i> Elite Techs</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html"><i class="fas fa-user"></i> About</a></li>
+        <li class="nav-item"><a class="nav-link" href="projects.html"><i class="fas fa-briefcase"></i> Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <img src="uploads/image 1.jpg" alt="Samuel Mutava">
+  <h1>Welcome to Elite Techs</h1>
+  <h2>Founder - Samuel Mutava</h2>
+  <p>
+    Building modern websites, scalable databases, and clean digital solutions tailored for your business or startup.
+  </p>
+</section>
+
+<!-- Features -->
+<section class="features container">
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="feature-card">
+        <i class="fas fa-code feature-icon"></i>
+        <h4>Web Development</h4>
+        <p>Responsive, fast-loading websites using HTML, CSS, JavaScript, and modern frameworks.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="feature-card">
+        <i class="fas fa-database feature-icon"></i>
+        <h4>Database Design</h4>
+        <p>Relational & NoSQL database solutions, optimized queries, and clean data architecture.</p>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="feature-card">
+        <i class="fas fa-file-excel feature-icon"></i>
+        <h4>Excel Data Management</h4>
+        <p>Efficient management of data using Excel spreadsheets for seamless organization and reporting.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="feature-card">
+        <i class="fas fa-file-word feature-icon"></i>
+        <h4>MS Word Document Management</h4>
+        <p>Effective creation, editing, and organization of documents using Microsoft Word.
+
+        </p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="feature-card">
+        <i class="fas fa-database feature-icon"></i>
+        <h4>MS Access Data Management</h4>
+        <p>Efficient management of data using Microsoft Access databases for seamless organization and reporting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Elite Techs. All rights reserved.</p>
+  <p>
+    <a href="https://linkedin.com/in/samuel-mutava-36b343311" target="_blank" class="text-decoration-none me-3">
+      <i class="fab fa-linkedin"></i> LinkedIn
+    </a>
+    <a href="mailto:mutavatosh@email.com" class="text-decoration-none">
+      <i class="fas fa-envelope"></i> Email
+    </a>
+  </p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

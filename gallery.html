@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project Gallery - Elite Techs</title>
+
+  <!-- Bootstrap CSS & Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --primary-color: #1e3a8a;
+      --primary-light: #3b82f6; /* lighter blue for hover */
+      --text-light: #fff;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+      margin: 0;
+    }
+
+    /* Navbar styles */
+    .navbar-dark {
+      background-color: var(--primary-color) !important;
+    }
+    .navbar-dark .navbar-brand,
+    .navbar-dark .navbar-nav .nav-link {
+      color: var(--text-light);
+      font-weight: 600;
+    }
+    .navbar-dark .navbar-nav .nav-link.active,
+    .navbar-dark .navbar-nav .nav-link:hover {
+      color: var(--primary-light);
+    }
+    .navbar-brand i {
+      margin-right: 6px;
+    }
+    .navbar-brand:hover {
+      color: var(--primary-light);
+    }
+
+    /* Gallery grid */
+    .gallery-container {
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(30, 58, 138, 0.15);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
+      border-radius: 10px;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(30, 58, 138, 0.85);
+      color: var(--text-light);
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+      font-size: 1rem;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .caption {
+      opacity: 1;
+    }
+
+    /* Header */
+    header h1 {
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+    header p.lead {
+      color: var(--primary-color);
+      font-weight: 500;
+    }
+
+    /* Modals */
+    .modal-content {
+      background-color: var(--primary-color) !important;
+      color: var(--text-light);
+    }
+    .modal-header {
+      border: none;
+    }
+    .modal-title {
+      color: var(--text-light);
+      font-weight: 700;
+    }
+    .btn-close.btn-close-white {
+      filter: brightness(100%);
+    }
+    .modal-body img {
+      border-radius: 0 0 10px 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><i class="fas fa-laptop-code"></i> Elite Techs</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html"><i class="fas fa-user"></i> About</a></li>
+          <li class="nav-item"><a class="nav-link" href="projects.html"><i class="fas fa-briefcase"></i> Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-images"></i> Gallery</a></li>
+          <li class="nav-item"><a class="nav-link active" href="gallery.html"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="text-center my-5">
+    <h1>Project Gallery</h1>
+    <p class="lead">Browse screenshots from some of my featured projects</p>
+  </header>
+
+  <main class="gallery-container">
+
+    <!-- Example gallery items - replace image src and captions -->
+    <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#modal1">
+      <img src="screenshots/sales-dashboard.png" alt="Sales Dashboard" loading="lazy" />
+      <div class="caption">Sales Dashboard</div>
+    </div>
+
+    <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#modal2">
+      <img src="screenshots/inventory-api.png" alt="Inventory API" loading="lazy" />
+      <div class="caption">Inventory API</div>
+    </div>
+
+    <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#modal3">
+      <img src="screenshots/portfolio-website.png" alt="Portfolio Website" loading="lazy" />
+      <div class="caption">Portfolio Website</div>
+    </div>
+
+    <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#modal4">
+      <img src="screenshots/appointments.png" alt="appointments System" loading="lazy" />
+      <div class="caption">Appontments System</div>
+    </div>
+
+    <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#modal5">
+      <img src="screenshots/sacco-dash.png" alt="Sacco System" loading="lazy" />
+      <div class="caption">Sacco Management System</div>
+    </div>
+
+    <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#modal6">
+      <img src="screenshots/auth-system.jpg" alt="Auth System" loading="lazy" />
+      <div class="caption">Auth System</div>
+    </div>
+
+    <!-- Add more items as needed -->
+
+  </main>
+
+  <!-- Modals for large image previews -->
+  <div class="modal fade" id="modal1" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Sales Dashboard</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-0">
+          <img src="screenshots/sales-dashboard.png" alt="Sales Dashboard" class="img-fluid" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal2" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Inventory API</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-0">
+          <img src="screenshots/inventory-api.png" alt="Inventory API" class="img-fluid" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal3" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Portfolio Website</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-0">
+          <img src="screenshots/portfolio-website.png" alt="Portfolio Website" class="img-fluid" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal4" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Appointments System</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-0">
+          <img src="screenshots/appointments.png" alt="Appontments System" class="img-fluid" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal5" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Saaco Management System</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-0">
+          <img src="screenshots/sacco-dash.png" alt="Sacco System" class="img-fluid" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal6" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"> Sacco Auth System</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-0">
+          <img src="screenshots/auth-system.jpg" alt="Sacco Auth System" class="img-fluid" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Me</title>
+
+  <!-- Bootstrap & Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    :root {
+      --main-color: #1e3a8a;
+      --accent-color: #1a458a;
+      --bg-color: #f1f5f9;
+      --text-color: #1e293b;
+      --white: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: var(--main-color);
+    }
+
+    .navbar .nav-link,
+    .navbar .navbar-brand {
+      color: var(--white) !important;
+    }
+
+    .navbar .nav-link:hover {
+      color: var(--accent-color) !important;
+    }
+
+    /* Page Title Section */
+    .page-title {
+      background-color: var(--accent-color);
+      color: var(--white);
+      padding: 3rem 1rem 2rem;
+      text-align: center;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+    }
+
+    .page-title h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .page-title p {
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+
+    /* Contact Section */
+    section {
+      max-width: 700px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background: var(--white);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      border-radius: 16px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--main-color);
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .info {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .info i {
+      margin-right: 0.5rem;
+      color: var(--accent-color);
+    }
+
+    .whatsapp-link {
+      color: var(--accent-color);
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .whatsapp-link i {
+      margin-right: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .whatsapp-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .page-title h1 {
+        font-size: 2rem;
+      }
+
+      iframe {
+        height: 700px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><i class="fas fa-laptop-code"></i> Elite Techs</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html"><i class="fas fa-user"></i> About</a></li>
+        <li class="nav-item"><a class="nav-link" href="projects.html"><i class="fas fa-briefcase"></i> Projects</a></li>
+        <li class="nav-item"><a class="nav-link active" href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Title -->
+<div class="page-title">
+  <h1>Contact Me</h1>
+  <p>Let’s build something great together.</p>
+</div>
+
+<!-- Contact Form Section with Google Form -->
+<section>
+  <h2><i class="fas fa-envelope"></i></h2>
+  
+  <!-- Embedded Google Form -->
+  <iframe 
+  src="https://docs.google.com/forms/d/e/1FAIpQLSdUeLOnmDI-D2ckbpwS-1wng67IMLtNgSP7kh8xicenakR-gQ/viewform?embedded=true" 
+    frameborder="0" 
+    marginheight="0" 
+    marginwidth="0">
+    Loading…
+  </iframe>
+
+  <div class="info mt-4">
+    <p><i class="fas fa-map-marker-alt"></i> Based in: Nairobi</p>
+    <p><i class="fas fa-phone"></i> +254 755 703 469</p>
+    <p><i class="fas fa-envelope"></i> samuelmutava@outlook.com</p>
+    <p><i class="fab fa-linkedin"></i> samuel-mutava</p>
+    <p>
+      <a href="#" onclick="openWhatsApp()" class="whatsapp-link" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i> Chat with me on WhatsApp
+      </a>
+    </p>
+  </div>
+</section>
+
+<!-- WhatsApp Script -->
+<script>
+  function openWhatsApp() {
+    const phone = '254755703469';
+    const message = encodeURIComponent('Hi Samuel, I would like to get in touch with you.');
+    const isMobile = /iPhone|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const baseUrl = isMobile ? 'https://wa.me/' : 'https://web.whatsapp.com/send?phone=';
+    const fullUrl = isMobile ? `${baseUrl}${phone}?text=${message}` : `${baseUrl}${phone}&text=${message}`;
+    window.open(fullUrl, '_blank');
+  }
+</script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
