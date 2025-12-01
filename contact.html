@@ -5,16 +5,89 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Me</title>
 
+  <!-- Bootstrap & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>
 
-  <!-- Vite entry -->
-  <script type="module" src="/src/main.js"></script>
+  <!-- SweetAlert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+  <!-- App Logic (built with env support) -->
+  <script type="module" src="/src/contact.js"></script>
+
+  <style>
+    :root {
+      --main-color: #1e3a8a;
+      --accent-color: #1a458a;
+      --bg-color: #f1f5f9;
+      --text-color: #1e293b;
+      --white: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    .navbar {
+      background-color: var(--main-color);
+    }
+
+    .navbar .nav-link,
+    .navbar .navbar-brand {
+      color: var(--white) !important;
+    }
+
+    .page-title {
+      background-color: var(--accent-color);
+      color: var(--white);
+      padding: 3rem 1rem 2rem;
+      text-align: center;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+    }
+
+    section {
+      max-width: 700px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background: var(--white);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      border-radius: 16px;
+    }
+
+    .submit-btn {
+      background-color: var(--main-color);
+      color: var(--white);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: var(--accent-color);
+    }
+
+    .whatsapp-link {
+      color: var(--accent-color);
+      font-weight: bold;
+      text-decoration: none;
+    }
+  </style>
 </head>
 
 <body>
 
-<nav class="navbar navbar-dark bg-primary">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
   <div class="container">
     <a class="navbar-brand" href="index.html">
       <i class="fas fa-laptop-code"></i> Elite Techs
@@ -22,25 +95,51 @@
   </div>
 </nav>
 
-<div class="container mt-5">
-  <h2 class="text-center mb-4">Send a Message</h2>
+<!-- Page Title -->
+<div class="page-title">
+  <h1>Contact Me</h1>
+  <p>Let’s build something great together.</p>
+</div>
 
-  <form id="contactForm" class="mx-auto" style="max-width:600px">
-    <input class="form-control mb-3" name="name" placeholder="Full Name" required />
-    <input class="form-control mb-3" name="email" placeholder="Email" required />
-    <input class="form-control mb-3" name="title" placeholder="Subject" required />
-    <textarea class="form-control mb-3" name="message" rows="4" placeholder="Message" required></textarea>
+<!-- Contact Section -->
+<section>
+  <h2 class="text-center mb-4">
+    <i class="fas fa-envelope"></i> Send a Message
+  </h2>
 
-    <button class="btn btn-primary w-100">Send Message</button>
+  <form id="contactForm">
+    <div class="form-group mb-3">
+      <label>Full Name</label>
+      <input type="text" name="name" class="form-control" required />
+    </div>
+
+    <div class="form-group mb-3">
+      <label>Email Address</label>
+      <input type="email" name="email" class="form-control" required />
+    </div>
+
+    <div class="form-group mb-3">
+      <label>Subject</label>
+      <input type="text" name="title" class="form-control" required />
+    </div>
+
+    <div class="form-group mb-4">
+      <label>Your Message</label>
+      <textarea name="message" rows="5" class="form-control" required></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn w-100">Send Message</button>
   </form>
 
   <div class="text-center mt-4">
-    <a href="#" onclick="openWhatsApp()" class="fw-bold">
-      <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+    <a href="#" onclick="openWhatsApp()" class="whatsapp-link">
+      <i class="fab fa-whatsapp"></i> Chat with me on WhatsApp
     </a>
   </div>
-</div>
+</section>
 
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
