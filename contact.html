@@ -13,7 +13,7 @@
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
     (function() {
-      emailjs.init("uF1gQo5qIErPSS74y"); // Your Public Key
+      emailjs.init("#"); // Your Public Key
     })();
   </script>
 
@@ -239,7 +239,7 @@
   document.getElementById("contactForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    emailjs.sendForm("service_8cc1i7c", "template_trytrio", this)
+    emailjs.sendForm("#", "#", this)
       .then(() => {
         Swal.fire("Message Sent!", "I'll get back to you shortly.", "success");
         this.reset();
@@ -254,5 +254,6 @@
 
 </body>
 </html>
+
 
 
