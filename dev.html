@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sales Dashboard - My Projects</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    /* Navbar */
+    .navbar-dark {
+      background-color: #1e3a8a !important; /* deep blue */
+    }
+    .navbar-dark .navbar-nav .nav-link {
+      color: #fff;
+      font-weight: 600;
+    }
+    .navbar-dark .navbar-nav .nav-link.active,
+    .navbar-dark .navbar-nav .nav-link:hover {
+      color: #c7d2fe; /* lighter blue for hover/active */
+    }
+    .navbar-brand {
+      color: #fff;
+      font-weight: 700;
+    }
+    .navbar-brand:hover {
+      color: #c7d2fe;
+    }
+
+    header {
+      background: #1e3a8a; /* deep blue */
+      color: #fff;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      font-weight: 500;
+    }
+
+    .projects-container {
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(30, 58, 138, 0.4);
+      border-color: #1e3a8a;
+    }
+
+    .project-card h3 {
+      margin-top: 0;
+      color: #1e3a8a;
+      font-weight: 700;
+    }
+
+    .project-card p {
+      color: #555;
+      margin: 0.5rem 0 1rem;
+      font-weight: 500;
+    }
+
+    .project-card a {
+      text-decoration: none;
+      color: #1e3a8a;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    .project-card a:hover {
+      color: #c7d2fe;
+    }
+
+    .project-card i {
+      margin-right: 6px;
+    }
+
+    /* Custom Styling for Under Development Message */
+    .under-development-alert {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 1.5rem;
+        background-color: #fef3c7; /* Light yellow background */
+        color: #92400e; /* Dark brown text */
+        border: 2px solid #fcd34d; /* Yellow border */
+        border-radius: 8px;
+        text-align: center;
+        font-size: 1.3rem;
+        font-weight: 700;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .under-development-alert i {
+        margin-right: 10px;
+        color: #d97706; /* Darker yellow icon */
+    }
+
+  </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><i class="fas fa-laptop-code"></i> Elite Techs</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html"><i class="fas fa-user"></i> About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="projects.html"><i class="fas fa-briefcase"></i> Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <header>
+    <h1>Sales Dashboard & High-Demand Projects</h1>
+    <p>Showcasing projects focused on data visualization and high-value business solutions.</p>
+  </header>
+
+    <div class="under-development-alert">
+        <i class="fas fa-tools"></i> **SALES DASHBOARD:** This project is currently **Under Development**. Check back soon for the live demo!
+    </div>
+    
+    <div class="projects-container">
+
+        <div class="project-card">
+      <h3><i class="fas fa-chart-line"></i> Sales Dashboard Pro</h3>
+      <p>An advanced, real-time dashboard featuring **KPIs, trend analysis, and interactive charts** (React/Vue + D3.js/Chart.js) with a **PostgreSQL** backend.</p>
+      <a href="#" target="_blank"><i class="fas fa-code-branch"></i> Backend Repo</a>
+    </div>
+    
+    <div class="project-card">
+      <h3><i class="fas fa-cash-register"></i> Modern P.O.S System</h3>
+      <p>A robust Point-of-Sale solution optimized for retail and hospitality, including **inventory, transaction logging, and staff management**.</p>
+      <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+    </div>
+
+    <div class="project-card">
+      <h3><i class="fas fa-piggy-bank"></i> ChumzLink Savings App</h3>
+      <p>A mobile/web application offering **goal-based savings, automated transfers, and tiered interest calculation** with secure data encryption.</p>
+      <a href="#" target="_blank"><i class="fab fa-apple"></i> App Store Concept</a>
+    </div>
+    
+    <div class="project-card">
+      <h3><i class="fas fa-stethoscope"></i> Telemedicine Platform</h3>
+      <p>Secure virtual consultation platform with patient portals, appointment booking, and **integrated video conferencing** capabilities (HIPAA/GDPR compliant).</p>
+      <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> View Case Study</a>
+    </div>
+    
+    <div class="project-card">
+      <h3><i class="fas fa-shopping-cart"></i> E-Commerce Microservices</h3>
+      <p>A scalable, modular e-commerce backend using microservices architecture for catalog, orders, and payment processing (AWS/Docker).</p>
+      <a href="#" target="_blank"><i class="fab fa-github"></i> View Architecture</a>
+    </div>
+
+    <div class="project-card">
+      <h3><i class="fas fa-robot"></i> AI Customer Chatbot</h3>
+      <p>An NLP-driven chatbot integrated with a knowledge base to handle **Level 1 customer support inquiries** 24/7, reducing ticket volume.</p>
+      <a href="#" target="_blank"><i class="fas fa-brain"></i> Bot Demo</a>
+    </div>
+
+
+  </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
