@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,19 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Me</title>
 
-  <!-- Bootstrap & Icons -->
+  <!-- Bootstrap & Font Awesome -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>
-
-  <!-- SweetAlert -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-  <!-- EmailJS -->
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-
-  <!-- App Logic (built with env support) -->
-  <script type="module" src="/src/contact.js"></script>
+  <script>
+    (function() {
+      emailjs.init("#"); // Your Public Key
+    })();
+  </script>
 
   <style>
     :root {
@@ -35,6 +34,7 @@
       color: var(--text-color);
     }
 
+    /* Navbar */
     .navbar {
       background-color: var(--main-color);
     }
@@ -44,6 +44,11 @@
       color: var(--white) !important;
     }
 
+    .navbar .nav-link:hover {
+      color: var(--accent-color) !important;
+    }
+
+    /* Page Title Section */
     .page-title {
       background-color: var(--accent-color);
       color: var(--white);
@@ -53,13 +58,52 @@
       border-bottom-right-radius: 40px;
     }
 
+    .page-title h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .page-title p {
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+
+    /* Contact Section */
     section {
       max-width: 700px;
       margin: 4rem auto;
       padding: 2rem;
       background: var(--white);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
       border-radius: 16px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--main-color);
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .form-group textarea {
+      resize: none;
     }
 
     .submit-btn {
@@ -68,30 +112,70 @@
       border: none;
       padding: 0.75rem 1.5rem;
       border-radius: 8px;
-      font-weight: 600;
       cursor: pointer;
+      font-weight: bold;
     }
 
     .submit-btn:hover {
       background-color: var(--accent-color);
     }
 
+    .info {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .info i {
+      margin-right: 0.5rem;
+      color: var(--accent-color);
+    }
+
     .whatsapp-link {
       color: var(--accent-color);
       font-weight: bold;
       text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .whatsapp-link i {
+      margin-right: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .whatsapp-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .page-title h1 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
-
 <body>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
   <div class="container">
-    <a class="navbar-brand" href="index.html">
-      <i class="fas fa-laptop-code"></i> Elite Techs
-    </a>
+    <a class="navbar-brand" href="index.html"><i class="fas fa-laptop-code"></i> Elite Techs</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html"><i class="fas fa-user"></i> About</a></li>
+        <li class="nav-item"><a class="nav-link" href="projects.html"><i class="fas fa-briefcase"></i> Projects</a></li>
+        <li class="nav-item"><a class="nav-link active" href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+      </ul>
+    </div>
   </div>
 </nav>
 
@@ -101,45 +185,55 @@
   <p>Let’s build something great together.</p>
 </div>
 
-<!-- Contact Section -->
+<!-- Contact Form Section with EmailJS -->
 <section>
-  <h2 class="text-center mb-4">
-    <i class="fas fa-envelope"></i> Send a Message
-  </h2>
-
+  <h2><i class="fas fa-envelope"></i> Send a Message</h2>
+  
   <form id="contactForm">
-    <div class="form-group mb-3">
-      <label>Full Name</label>
-      <input type="text" name="name" class="form-control" required />
+    <div class="form-group">
+      <label for="name"><i class="bi bi-person-fill"></i> Full Name</label>
+      <input type="text" name="name" id="name" required placeholder="Enter your full name" />
     </div>
 
-    <div class="form-group mb-3">
-      <label>Email Address</label>
-      <input type="email" name="email" class="form-control" required />
+    <div class="form-group">
+      <label for="email"><i class="bi bi-envelope-fill"></i> Email Address</label>
+      <input type="email" name="email" id="email" required placeholder="Enter your email" />
     </div>
 
-    <div class="form-group mb-3">
-      <label>Subject</label>
-      <input type="text" name="title" class="form-control" required />
+    <div class="form-group">
+      <label for="title"><i class="bi bi-tag-fill"></i> Subject</label>
+      <input type="text" name="title" id="title" required placeholder="What is this about?" />
     </div>
 
-    <div class="form-group mb-4">
-      <label>Your Message</label>
-      <textarea name="message" rows="5" class="form-control" required></textarea>
+    <div class="form-group">
+      <label for="message"><i class="bi bi-chat-dots-fill"></i> Your Message</label>
+      <textarea name="message" id="message" rows="5" required placeholder="Type your message here..."></textarea>
     </div>
 
-    <button type="submit" class="submit-btn w-100">Send Message</button>
+    <button type="submit" class="submit-btn">Send Message</button>
   </form>
 
-  <div class="text-center mt-4">
-    <a href="#" onclick="openWhatsApp()" class="whatsapp-link">
-      <i class="fab fa-whatsapp"></i> Chat with me on WhatsApp
-    </a>
+  <div class="info mt-4">
+    <p><i class="fas fa-map-marker-alt"></i> Based in: Nairobi</p>
+    <p><i class="fas fa-phone"></i> +254 755 703 469</p>
+    <p><i class="fas fa-envelope"></i> samuelmutava@outlook.com</p>
+    <p><i class="fab fa-linkedin"></i> samuel-mutava</p>
+    <p>
+      <a href="#" onclick="openWhatsApp()" class="whatsapp-link" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i> Chat with me on WhatsApp
+      </a>
+    </p>
   </div>
 </section>
 
+<!-- WhatsApp Script -->
+
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+<script type="module" src="/src/main.js"></script>
+
 
 </body>
 </html>
+
+
